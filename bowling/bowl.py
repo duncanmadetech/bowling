@@ -1,7 +1,7 @@
 class Bowl:
 
     def score(self, score):
-        pass
+        self.score = score
 
     def get_score(self):
-        return 5
+        return self.score
