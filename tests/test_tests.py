@@ -12,3 +12,6 @@ class TestTests(unittest.TestCase):
         game = Bowl()
         game.score(score)
         self.assertEqual(score, game.get_score())
+
+    def test_initial_score_is_zero(self):
+        self.assertEqual(0, Bowl().get_score())
