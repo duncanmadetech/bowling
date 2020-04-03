@@ -2,8 +2,8 @@ import unittest
 from bowling.bowl import Bowl
 import random
 
-# Each pair throws is called a game
-# There are ten games in a frame
+# Each two attempt is called a go
+# There are ten goes in a frame
 
 class TestTests(unittest.TestCase):
 
@@ -12,6 +12,12 @@ class TestTests(unittest.TestCase):
         game = Bowl()
         game.score(score)
         self.assertEqual(score, game.get_score())
+
+    def test_can_score_from_two_goes(self):
+        game = Bowl()
+        game.score(5)
+        game.score(7)
+        self.assertEqual(12, game.get_score())
 
     def test_initial_score_is_zero(self):
         self.assertEqual(0, Bowl().get_score())
