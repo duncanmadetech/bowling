@@ -76,6 +76,28 @@ class TestTests(unittest.TestCase):
         game.score(6, 1) # 7
         self.assertEqual(90, game.get_score())
 
-
     def test_initial_score_is_zero(self):
         self.assertEqual(0, Bowl().get_score())
+
+    def test_restricted_to_ten_frames(self):
+        game = Bowl()
+        game.score(1, 1)
+        self.assertFalse(game.is_over)
+        game.score(1, 1)
+        self.assertFalse(game.is_over)
+        game.score(1, 1)
+        self.assertFalse(game.is_over)
+        game.score(1, 1)
+        self.assertFalse(game.is_over)
+        game.score(1, 1)
+        self.assertFalse(game.is_over)
+        game.score(1, 1)
+        self.assertFalse(game.is_over)
+        game.score(1, 1)
+        self.assertFalse(game.is_over)
+        game.score(1, 1)
+        self.assertFalse(game.is_over)
+        game.score(1, 1)
+        self.assertFalse(game.is_over)
+        game.score(1, 1)
+        self.assertTrue(game.is_over)

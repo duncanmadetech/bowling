@@ -4,8 +4,16 @@ class Bowl:
         self.current_score = 0
         self.is_spare = False
         self.is_strike = [ False, False]
+        self.is_over = False
+        self.frame = 0
+
+    def __increment_frame(self):
+        self.frame += 1
+        if self.frame == 10:
+            self.is_over = True
 
     def score(self, bowl1, bowl2):
+        self.__increment_frame()
         if self.is_spare:
             self.current_score += bowl1
 
@@ -26,6 +34,7 @@ class Bowl:
         return self.current_score
 
     def strike(self):
+        self.__increment_frame()
         self.current_score += 10
         if self.is_spare:
             self.current_score += 10
