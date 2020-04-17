@@ -14,5 +14,11 @@ class TestTests(unittest.TestCase):
         game.score(5, 3)
         self.assertEqual(8, game.get_score())
 
+    def test_scoring_a_spare_will_add_on_the_next_bowl_to_the_previous_score(self):
+        game = Bowl()
+        game.score(4, 6)
+        game.score(6, 2)
+        self.assertEqual(24, game.get_score())
+
     def test_initial_score_is_zero(self):
         self.assertEqual(0, Bowl().get_score())
