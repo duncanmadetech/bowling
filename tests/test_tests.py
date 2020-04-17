@@ -25,5 +25,11 @@ class TestTests(unittest.TestCase):
         game.strike()
         self.assertEqual(10, game.get_score())
 
+    def test_you_can_score_a_strike_in_second_frame(self):
+        game = Bowl()
+        game.score(3, 3)
+        game.strike()
+        self.assertEqual(16, game.get_score())
+
     def test_initial_score_is_zero(self):
         self.assertEqual(0, Bowl().get_score())
