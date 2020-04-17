@@ -12,3 +12,6 @@ class Bowl:
 
     def get_score(self):
         return self.current_score
+
+    def strike(self):
+        self.current_score = 10
