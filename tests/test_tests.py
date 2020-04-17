@@ -44,5 +44,38 @@ class TestTests(unittest.TestCase):
         game.score(3, 4) # 7
         self.assertEqual(47, game.get_score())
 
+    def test_scoring_a_turkey(self):
+        game = Bowl()
+        game.strike() # 30
+        game.strike() # 26
+        game.strike() # 18
+        game.score(6, 2) # 8
+        self.assertEqual(82, game.get_score())
+
+    def test_scoring_a_strike_normal_score_strike(self):
+        game = Bowl()
+        game.strike() # 18
+        game.score(6, 2) # 8
+        game.strike() # 17
+        game.score(6, 1) # 7
+        self.assertEqual(50, game.get_score())
+
+    def test_scoring_a_strike_after_spare(self):
+        game = Bowl()
+        game.score(3, 7) # 20
+        game.strike() # 17
+        game.score(6, 1) # 7
+        self.assertEqual(44, game.get_score())
+
+    def test_scoring_a_strike_then_spare_then_mixture_are_counted_correctly(self):
+        game = Bowl()
+        game.strike() # 20
+        game.score(3, 7) # 20
+        game.strike() # 26
+        game.strike() # 17
+        game.score(6, 1) # 7
+        self.assertEqual(90, game.get_score())
+
+
     def test_initial_score_is_zero(self):
         self.assertEqual(0, Bowl().get_score())

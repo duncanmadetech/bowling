@@ -27,6 +27,9 @@ class Bowl:
 
     def strike(self):
         self.current_score += 10
+        if self.is_spare:
+            self.current_score += 10
+            self.is_spare = False
         if self.is_strike[0]:
             self.current_score += 10
         if self.is_strike[1]:
