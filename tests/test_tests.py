@@ -37,5 +37,12 @@ class TestTests(unittest.TestCase):
         game.score(3, 4)
         self.assertEqual(24, game.get_score())
 
+    def test_scoring_two_strikes_counts_the_next_two_bowls(self):
+        game = Bowl()
+        game.strike() # 23
+        game.strike() # 17
+        game.score(3, 4) # 7
+        self.assertEqual(47, game.get_score())
+
     def test_initial_score_is_zero(self):
         self.assertEqual(0, Bowl().get_score())
